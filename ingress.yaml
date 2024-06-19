@@ -1,0 +1,36 @@
+apiversion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myingress
+  labels:
+    name: home-ingress
+spec:
+  rules:
+  - host: www.samsplace.in
+    paths:
+     - pathType: Prefix
+       path: "/"
+    backend:
+        service:
+         name: home-app
+        port: 
+         number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mobile-ingress
+  labels:
+    name: mobile-ingress
+spec:
+  rules:
+  - host: www.samsplace.in
+    paths:
+     - pathType: Prefix
+       path: "/"
+       backend:
+          service:
+            name: mobile-app
+            port: 
+              number: 80
+

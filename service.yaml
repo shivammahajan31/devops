@@ -1,0 +1,23 @@
+apiversion: v1 
+kind: Service
+metadata:
+  name: home-app
+spec:
+  selector:
+    app: home-app
+  ports:
+  - port: 80
+    targetPort: 80
+
+---
+apiversion: v1 
+kind: Service
+metadata:
+  name: mobile-app
+spec:
+  selector:
+    app: mobile-app
+  ports:
+  - port: 80
+    targetPort: 80
+

@@ -1,0 +1,41 @@
+apiversion: app/v1
+kind: Deployment
+metadata:
+  name: home-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: home-app
+  template:
+    metadata:
+      labels:
+        app: home-app
+    spec:
+      containers:
+      - name: home-app
+        image: httpd
+        resources:
+        ports:
+        - containerPort: 80 
+
+---
+apiversion: app/v1
+kind: Deployment
+metadata:
+  name: mobile-app
+spec:
+  selector:
+    matchLabels:
+      app: mobile-app
+  template:
+    metadata:
+      labels:
+        app: mobile-app
+    spec:
+      containers:
+      - name: mobile-app
+        image: nginx
+        resources:
+        ports:
+        - containerPort: 80
