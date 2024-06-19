@@ -1,7 +1,7 @@
 apiversion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: myingress
+  name: home-app
   labels:
     name: home-ingress
 spec:
@@ -19,7 +19,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: mobile-ingress
+  name: mobile-app
   labels:
     name: mobile-ingress
 spec:
@@ -27,7 +27,7 @@ spec:
   - host: www.samsplace.in
     paths:
      - pathType: Prefix
-       path: "/"
+       path: "/mobile"
        backend:
           service:
             name: mobile-app
