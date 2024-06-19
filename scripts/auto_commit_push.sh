@@ -1,7 +1,7 @@
 #!/bin/bash
 while true
 do
-    cd /Downloads/devops
+    cd \Users\Shivam\Downloads\devopss
     git add .
     if ! git diff-index --quiet HEAD; then
         git commit -m "Auto commit"
