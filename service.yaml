@@ -3,11 +3,12 @@ kind: Service
 metadata:
   name: home-app
 spec:
+  type: "NodePort"  
   selector:
     app: home-app
   ports:
   - port: 80
-    targetPort: 80
+  targetPort: 80
 
 ---
 apiVersion: v1 

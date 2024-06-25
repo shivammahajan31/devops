@@ -1,4 +1,4 @@
-apiVersion: app/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: home-app
@@ -15,12 +15,11 @@ spec:
       containers:
       - name: home-app
         image: httpd
-        resources:
         ports:
         - containerPort: 80 
 
 ---
-apiVersion: app/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mobile-app
@@ -36,6 +35,5 @@ spec:
       containers:
       - name: mobile-app
         image: nginx
-        resources:
         ports:
         - containerPort: 80
