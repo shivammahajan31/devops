@@ -1,47 +1,35 @@
-variable "name" {
-  description = "Name of the auto-scaling group"
-  type        = string
-  default     = "my_autoscalling"
-}
-
 variable "region" {
   description = "AWS region"
   type        = string
   default     = "us-east-1"
 }
 
-variable "ami" {
-  description = "AMI ID for the instances"
+variable "vpc_cidr" {
+  description = "CIDR block for the VPC"
   type        = string
-  default     = "ami-01b799c439fd5516a"
+  default     = "10.0.0.0/16"
 }
 
-variable "instance_type" {
-  description = "Instance type"
+variable "vpc_name" {
+  description = "Name of the VPC"
   type        = string
-  default     = "t2.micro"
+  default     = "my-vpc"
 }
 
-variable "desired_capacity" {
-  description = "Desired capacity"
-  type        = number
-  default     = 2
-}
-
-variable "max_size" {
-  description = "Maximum size of the auto-scaling group"
-  type        = number
-  default     = 3
-}
-
-variable "min_size" {
-  description = "Minimum size of the auto-scaling group"
-  type        = number
-  default     = 2
-}
-
-variable "subnet_ids" {
-  description = "List of subnet IDs"
+variable "public_subnet_cidrs" {
+  description = "List of public subnet CIDRs"
   type        = list(string)
-  default     = ["subnet-0847f124a7bf05660","subnet-09bad27dac8c2a587","subnet-07357fda7181a508b"]
+  default     = ["10.0.1.0/24"]
+}
+
+variable "private_subnet_cidrs" {
+  description = "List of public subnet CIDRs"
+  type        = list(string)
+  default     = ["10.0.2.0/24"]
+}
+
+variable "availability_zones" {
+  description = "List of availability zones"
+  type        = list(string)
+  default     = ["us-east-1a", "us-east-1b"]
 }

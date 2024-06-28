@@ -1,11 +1,12 @@
-module "autoscaling" {
-  source           = "/root/devops/terraform/modules/autoscaling"
-  name             = var.name
-  region           = var.region
-  ami              = var.ami
-  instance_type    = var.instance_type
-  desired_capacity = var.desired_capacity
-  max_size         = var.max_size
-  min_size         = var.min_size
-  subnet_ids       = var.subnet_ids
+provider "aws" {
+  region = var.region
+}
+
+module "vpc" {
+  source               = "/root/devops/terraform/modules/vpc"
+  vpc_cidr             = var.vpc_cidr
+  vpc_name             = var.vpc_name
+  public_subnet_cidrs  = var.public_subnet_cidrs
+  private_subnet_cidr  = var.private_subnet_cidrs
+  availability_zones   = var.availability_zones
 }

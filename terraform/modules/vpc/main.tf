@@ -1,8 +1,8 @@
-resource "aws_vpc" "myvpc" {
+resource "aws_vpc" "my_vpc" {
   cidr_block     = var.vpc_cidr_block
 
   tags = {
-    Name = "${var.project_name}-vpc"
+    Name = "${var.vpc_name}-vpc"
   }
 }
 
@@ -10,7 +10,7 @@ resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = aws.vpc.myvpc_id
 
   tags = {
-    Name = "${var.project_name}-igw"
+    Name = "${var.vpc_name}-igw"
   }
 }
 
@@ -23,7 +23,7 @@ resource "aws_subnet" "public_subnet_1" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "${var.project_name}-public-1"
+    Name = "${var.vpc_name}-public-1"
   }
 }
 
@@ -34,7 +34,7 @@ resource "aws_subnet" "private_subnet_1" {
   map_public_ip_on_launch = false 
 
   tags = {
-    Name = "${var.project_name}-private-1"
+    Name = "${var.vpc_name}-private-1"
   }
 }
 
@@ -47,7 +47,7 @@ resource "aws_route_table" "public_route_table" {
   }
 
   tags = {
-    Name = "${var.project_name}-public-rt"
+    Name = "${var.vpc_name}-public-rt"
   }
 }
 

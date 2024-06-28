@@ -1,8 +1,15 @@
-output "autoscaling_group_name" {
-  description = "Name of the auto-scaling group"
-  value = module.autoscaling.autoscaling_group_name
+output "vpc_id" {
+    value = module.aws_vpc.myvpc.id
 }
-output "aws_launch_configuration_id" {
-  description = "Name of the auto-scaling group"
-  value       = module.autoscaling.aws_launch_configuration_id
+output "private_subnet_id" {
+    value = module.aws_subnet.private_subnet_1.id
+}
+output "public_subnet_id" {
+    value = module.aws_subnet.public_subnet_1.id
+}
+output "gateway_id" {
+    value = module.aws_internet_gateway.internet_gateway.id
+}
+output "route_table_id" {
+    value = module.aws_route_table.public_route_table.id
 }
