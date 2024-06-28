@@ -25,7 +25,7 @@ variable "instance_type" {
 variable "desired_capacity" {
   description = "Desired capacity"
   type        = number
-  default     = 1
+  default     = 2
 }
 
 variable "max_size" {
