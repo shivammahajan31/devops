@@ -20,5 +20,5 @@ variable "min_size" {
     type = number
 }
 variable "subnet_ids" {
-    type = string
+    type = list(string)
 }
