@@ -7,7 +7,7 @@ resource "aws_vpc" "my_vpc" {
 }
 
 resource "aws_internet_gateway" "internet_gateway" {
-  vpc_id = module.aws.vpc.myvpc_id
+  vpc_id = aws_vpc.myvpc.id
 
   tags = {
     Name = "${var.vpc_name}-igw"
@@ -17,7 +17,7 @@ resource "aws_internet_gateway" "internet_gateway" {
 data "aws_availability_zones" "available_zones" {}
 
 resource "aws_subnet" "public_subnet_1" {
-  vpc_id                  = module.aws.vpc.myvpc_id
+  vpc_id                  = aws_vpc.myvpc.id
   cidr_block              = var.public_subnet_cidr
   availability_zone       = data.aws_availability_zones.available_zones.names[0]
   map_public_ip_on_launch = true
@@ -28,7 +28,7 @@ resource "aws_subnet" "public_subnet_1" {
 }
 
 resource "aws_subnet" "private_subnet_1" {
-  vpc_id                  = module.aws.vpc.myvpc_id
+  vpc_id                  = aws_vpc.myvpc.id
   cidr_block              = var.private_subnet_cidr
   availability_zone       = data.aws_availability_zones.available_zones.names[1]
   map_public_ip_on_launch = false 
@@ -39,11 +39,11 @@ resource "aws_subnet" "private_subnet_1" {
 }
 
 resource "aws_route_table" "public_route_table" {
-  vpc_id = module.aws.vpc.myvpc_id
+  vpc_id = aws_vpc.myvpc.id
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = module.aws_internet_gateway.internet_gateway.id
+    gateway_id = aws_internet_gateway.internet_gateway.id
   }
 
   tags = {
@@ -52,7 +52,7 @@ resource "aws_route_table" "public_route_table" {
 }
 
 resource "aws_route_table_association" "public_subnet_1_rt_association" {
-  subnet_id      = module.aws_subnet.public_subnet.id
-  route_table_id = module.aws_route_table.public_route_table.id
+  subnet_id      = aws_subnet.public_subnet.id
+  public_route_table = aws_route_table.public_route_table.id
 }
 
