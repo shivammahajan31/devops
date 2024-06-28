@@ -9,7 +9,7 @@ resource "aws_autoscaling_group" "autoscaling_group_1" {
   desired_capacity     = var.desired_capacity
   max_size             = var.max_size
   min_size             = var.min_size
-  launch_configuration = aws_launch_configuration.autoscaling_group_1.name
+  launch_configuration = aws_launch_configuration.autoscaling_group_1.id
   vpc_zone_identifier  = var.subnet_ids
 
   tag {
