@@ -18,7 +18,7 @@ data "aws_availability_zones" "available_zones" {}
 
 resource "aws_subnet" "public_subnet_1" {
   vpc_id                  = aws.vpc.myvpc_id
-  cidr_block              = var.public_subnet_cidrs
+  cidr_block              = var.public_subnet_cidr
   availability_zone       = data.aws_availability_zones.available_zones.names[0]
   map_public_ip_on_launch = true
 
@@ -29,8 +29,8 @@ resource "aws_subnet" "public_subnet_1" {
 
 resource "aws_subnet" "private_subnet_1" {
   vpc_id                  = aws.vpc.myvpc_id
-  cidr_block              = var.private_subnet_cidrs
-  availability_zone       = data.aws_availability_zones.available_zones.names[0]
+  cidr_block              = var.private_subnet_cidr
+  availability_zone       = data.aws_availability_zones.available_zones.names[1]
   map_public_ip_on_launch = false 
 
   tags = {
