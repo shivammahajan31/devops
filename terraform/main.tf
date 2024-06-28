@@ -1,7 +1,3 @@
-provider "aws" {
-  region = var.region
-}
-
 module "autoscaling" {
   source           = "/root/devops/terraform/modules/autoscalling"
   name             = var.name
