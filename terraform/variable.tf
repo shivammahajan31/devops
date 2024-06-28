@@ -43,5 +43,5 @@ variable "min_size" {
 variable "subnet_ids" {
   description = "List of subnet IDs"
   type        = list(string)
-  default     = {subnet-0847f124a7bf05660}
+  default     = ["subnet-0847f124a7bf05660","subnet-09bad27dac8c2a587","subnet-07357fda7181a508b"]
 }
