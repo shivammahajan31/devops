@@ -1,16 +1,16 @@
-output "vpc_id" {
+output "myvpc_id" {
   value = aws_vpc.myvpc.id
 }
 output "private_subnet_id" {
-  value = aws_subnet.private_subnet_1.id
+  value = aws_subnet.private_subnet.id
 }
 output "public_subnet_id" {
-  value = aws_subnet.public_subnet_1.id
+  value = aws_subnet.public_subnet.id
 }
-output "gateway_id" {
+output "internet_gateway_id" {
   value  = aws_internet_gateway.internet_gateway.id
 }
-output "route_table_id" {
+output "public_route_table_id" {
   value = aws_route_table.public_route_table.id
 }
 
