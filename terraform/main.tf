@@ -1,5 +1,5 @@
 module "autoscaling" {
-  source           = "/root/devops/terraform/modules/autoscalling"
+  source           = "/root/devops/terraform/modules/autoscaling"
   name             = var.name
   region           = var.region
   ami              = var.ami
