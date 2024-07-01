@@ -10,7 +10,7 @@ resource "module" "instance" {
     key_name = var.key_name
     vpc_id = var.vpc_id
     vpc_subnet_id = var.vpc_subnet_id
-    vpc_security_group_ids = "var.vpc_security_group_ids"
+    vpc_security_group_ids = var.vpc_security_group_ids
 
 
 }
